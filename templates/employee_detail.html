@@ -11,29 +11,16 @@
 </head>
 <body class="bgbody">
     <div class="container">
-         <h1>Hello dJango, This is sunil from Home Page</h1>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Full Name</th>
-      <th scope="col">Designation</th>
-      <th scope="col">Phone No</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for employee in employees %}
-    <tr>
-      <th scope="row">{{forloop.counter}}</th>
-      <td><a href="{% url 'employee_detail' employee.id %}">{{employee.first_name}} {{employee.last_name}}</a></td>
-      <td>{{employee.designation}}</td>
-      <td>{{employee.phone_number}}</td>
-    </tr>
-    
-    {% endfor %}
-    
-  </tbody>
-</table>
+         <div class="card mx-auto mt-3" style="width: 18rem;">
+  <img src="{{employee.photo.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">{{employee.first_name}} {{employee.last_name}}</p>
+    <p class="card-text">{{employee.designation}}</p>
+    <p class="card-text">{{employee.email}}</p>
+    <p class="card-text">{{employee.phone_number}}</p>
+  </div>
+  <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+</div>
     </div>
    
 </body>
